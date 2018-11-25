@@ -17,12 +17,12 @@ exports.solve = function(fileName) {
     cont = cont +1
         var  aux = ""
         var aux2 = 0
-        for (var i = 0; i<assignment.length; i++){
+        for (var i = 0; i<currentAssignment.length; i++){
              aux = aux + assignment[i]
         }
-        for (var j = 0; j<assignment.length; j++){
+        for (var j = 0; j<currentAssignment.length; j++){
             if (aux.charAt(j) == 1){
-            aux2 = aux2 + Math.pow(2,aux.length-1)
+            aux2 = aux2 + Math.pow(2,aux.length-1-j)
             }
         }
         
@@ -33,8 +33,6 @@ exports.solve = function(fileName) {
         for ( var i  = 0; i<aux3.length; i++){
             newAssignment[i] = aux3.charAt(i)
         }
-
-        cont = cont+1
 
      return newAssignment
   }
@@ -103,11 +101,11 @@ exports.solve = function(fileName) {
       var cont2=0
   function readClauses(text){
       for (var i = 0; i<text.length; i++ ){
-          if (text[i][0]=="p"){
+          if (text[i][0]== "p"){
               var cv = text[i].split(" ");
               var vars = cv[2]
               var clauses = cv[3]
-          }else if (text[i][0]!="c"){
+          }else if (text[i][0] == "cnf"){
               var tudo
               //var tamanho = text[i].length;
               for (var j = 0; j<text[i].length; j++){
@@ -115,6 +113,8 @@ exports.solve = function(fileName) {
                       tudo[cont2] = text[i][j]
                       cont2++
                   }
+              }else {
+
               }
           }
           var separando = tudo.split("0") // separando as clausulas
