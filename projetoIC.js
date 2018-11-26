@@ -100,6 +100,7 @@ var cont3=0
 function readClauses(text){
     let aux5 = ""
     var tudo = ""
+    var separando = []
     for (var i = 0; i<text.length; i++ ){
         if (text[i][0]== "p" || text[i][1] == "cnf"){
             var cv = text[i].split(" ");
@@ -113,23 +114,24 @@ function readClauses(text){
                     separando[cont3] = aux5.split(" ")
                     cont3++
                 }
-            }
-            for ( let i = 0 ; i<separando.length ; i++){
+           }//if (cont3>0){
+            for ( var i = 0 ; i<separando.length ; i++){
                 let compara
                 if ( i = 0){
                     compara = separando[i].length
-                }else{
-                    aux6 = separando[i].length
-                    if (compara<aux6){
-                        compara = aux6
-                        vars = compara
-                    }
-                }
+                    } else{
+                        aux6 = separando[i].length
+                        if (compara<aux6){
+                            compara = aux6
+                            vars = compara
+                        }
+                  //  }
                 
+                }
             }
         }
     }
-    var separando = tudo.split("0") // separando as clausulas
+  //  var separando = tudo.split("0") // separando as clausulas
 }
 
 //CHECKED
