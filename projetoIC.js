@@ -108,13 +108,12 @@ function readClauses(text){
             var clauses = cv[3]
         }else if (text[i][0] != 'c'){
             for (var j = 0; j<text[i].length; j++){
-                if(text[i][j] !== 0){
-                    aux5 = aux5 + text[i][j] + " "
+                if(text[i][j] != "0"){
+                   separando[cont3][j] = parseInt(text[i][j])
                 }else{
-                    separando[cont3] = aux5.split(" ")
                     cont3++
                 }
-           }//if (cont3>0){
+           }
             for ( var i = 0 ; i<separando.length ; i++){
                 let compara
                 if ( i = 0){
@@ -125,13 +124,12 @@ function readClauses(text){
                             compara = aux6
                             vars = compara
                         }
-                  //  }
+                    
                 
                 }
             }
         }
     }
-  //  var separando = tudo.split("0") // separando as clausulas
 }
 
 //CHECKED
@@ -143,7 +141,7 @@ function readVariables() {
     }
 
 //CHECKED
-function checkProblemSpecifications() {
+function checkProblemSpecification() {
     if (separando.length == clauses){
         return true
     }else {
